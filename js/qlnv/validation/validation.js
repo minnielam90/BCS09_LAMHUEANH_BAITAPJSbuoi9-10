@@ -7,8 +7,8 @@ function checkEmptyValue(value, idSpan) {
     return false;
   } else {
     document.getElementById(idSpan).innerHTML = "";
-    return true;
     document.getElementById(idSpan).style.display = "none";
+    return true;
   }
 }
 
@@ -20,10 +20,12 @@ function checkEmailValue(value, idSpan) {
   if (regexEmail.test(value)) {
     // dữ liệu thỏa regex
     document.getElementById(idSpan).innerHTML = "";
+    document.getElementById(idSpan).style.display = "none";
     return true;
   } else {
     document.getElementById(idSpan).innerHTML =
       "Định dạng email không chính xác";
+    document.getElementById(idSpan).style.display = "block";
     return false;
   }
 }
@@ -34,10 +36,12 @@ function checkIDValue(value, idSpan) {
   regexID.test(value);
   if (regexID.test(value)) {
     document.getElementById(idSpan).innerHTML = "";
+    document.getElementById(idSpan).style.display = "none";
     return true;
   } else {
     document.getElementById(idSpan).innerHTML =
       "Tài khoản phải tối đa 4-6 ký số";
+    document.getElementById(idSpan).style.display = "block";
     return false;
   }
 }
@@ -48,10 +52,12 @@ function checkName(value, idSpan) {
   checkName.test(value);
   if (checkName.test(value)) {
     document.getElementById(idSpan).innerHTML = "";
+    document.getElementById(idSpan).style.display = "none";
     return true;
   } else {
     document.getElementById(idSpan).innerHTML =
       "Vui lòng nhập chữ cho tên nhân viên";
+    document.getElementById(idSpan).style.display = "block";
     return false;
   }
 }
@@ -62,10 +68,12 @@ function checkPass(value, idSpan) {
   checkPass.test(value);
   if (checkPass.test(value)) {
     document.getElementById(idSpan).innerHTML = "";
+    document.getElementById(idSpan).style.display = "none";
     return true;
   } else {
     document.getElementById(idSpan).innerHTML =
       "Mật khẩu phải từ 6-10 ký tự (chứa ít nhất 1 ký tự số, 1 ký tự in hoa và 1 ký tự đặc biệt !@#$%^&*";
+    document.getElementById(idSpan).style.display = "block";
     return false;
   }
 }
@@ -76,10 +84,12 @@ function checkDate(value, idSpan) {
   checkDate.test(value);
   if (checkDate.test(value)) {
     document.getElementById(idSpan).innerHTML = "";
+    document.getElementById(idSpan).style.display = "none";
     return true;
   } else {
     document.getElementById(idSpan).innerHTML =
       "Vui lòng nhập theo định dạng mm/dd/yyyy";
+    document.getElementById(idSpan).style.display = "block";
     return false;
   }
 }
@@ -89,11 +99,13 @@ function checkNumber(value, idSpan, min, max) {
   const parsedNumber = parseInt(value, 10);
   if (!isNaN(parsedNumber) && parsedNumber >= min && parsedNumber <= max) {
     document.getElementById(idSpan).innerHTML = "";
+    document.getElementById(idSpan).style.display = "none";
     return true;
   } else {
     document.getElementById(
       idSpan
     ).innerHTML = `Vui lòng nhập tối thiểu ${min} và tối đa ${max}`;
+    document.getElementById(idSpan).style.display = "block";
     return false;
   }
 }

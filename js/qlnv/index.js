@@ -172,9 +172,10 @@ function getInfoUser(taikhoanNV) {
   }
   document.getElementById("myModal").style.display = "block";
 }
+
+var isValid = true;
 function getInfoUserHienTai() {
   var nhanVien = new NhanVien();
-  var isValid = true;
   for (var i = 0; i < arrIdInput.length; i++) {
     var valueInput = document.getElementById(arrIdInput[i]).value;
 
