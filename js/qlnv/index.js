@@ -76,7 +76,6 @@ function getValueUser() {
 
   if (isValid) {
     // gọi mảng và dùng push để đưa dữ liệu nhân viên vào mảng lưu trữ
-    console.log(arrNhanVien);
 
     arrNhanVien.push(nhanVien);
     saveLocalStore("arrNhanVien", arrNhanVien);
@@ -137,7 +136,6 @@ function deleteUser(taikhoanNV) {
   for (var i = 0; i < arrNhanVien.length; i++) {
     var nhanVien = arrNhanVien[i];
     if (nhanVien.tknv == taikhoanNV) {
-      console.log(i);
       index = i;
     }
   }
@@ -147,7 +145,6 @@ function deleteUser(taikhoanNV) {
 
     // gọi lại hàm render để cập nhật dữ liệu mới
     renderDisplay();
-    console.log(arrNhanVien);
   }
 }
 
@@ -160,7 +157,6 @@ function getInfoUser(taikhoanNV) {
       nhanVien = arrNhanVien[i];
     }
   }
-  console.log(nhanVien);
   // dùng dữ liệu đã lấy được và truyền lên input
   for (var z = 0; z < arrIdInput.length; z++) {
     document.getElementById(arrIdInput[z]).value = nhanVien[arrIdInput[z]];
