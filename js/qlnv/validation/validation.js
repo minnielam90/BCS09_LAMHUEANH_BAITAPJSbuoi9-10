@@ -62,6 +62,37 @@ function checkName(value, idSpan) {
   }
 }
 
+// function validateVietnameseName(value, idSpan) {
+//   var firstLetter = "[A-EGHIK-VXYÂĐỔÔÚỨ]".normalize("NFC"),
+//     otherLetters =
+//       "[a-eghik-vxyàáâãèéêìíòóôõùúýỳỹỷỵựửữừứưụủũợởỡờớơộổỗồốọỏịỉĩệểễềếẹẻẽặẳẵằắăậẩẫầấạảđ₫]".normalize(
+//         "NFC"
+//       ),
+//     regexString =
+//       "^" +
+//       firstLetter +
+//       otherLetters +
+//       "+\\s" +
+//       "(" +
+//       firstLetter +
+//       otherLetters +
+//       "+\\s)*" +
+//       firstLetter +
+//       otherLetters +
+//       "+$",
+//     regexPattern = RegExp(regexString);
+//   if (regexPattern.test(value)) {
+//     document.getElementById(idSpan).innerHTML = "";
+//     document.getElementById(idSpan).style.display = "none";
+//     return true;
+//   } else {
+//     document.getElementById(idSpan).innerHTML =
+//       "Vui lòng nhập chữ cho tên nhân viên";
+//     document.getElementById(idSpan).style.display = "block";
+//     return false;
+//   }
+// }
+
 // kiểm tra mật khẩu
 function checkPass(value, idSpan) {
   var checkPass = /^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,10}$/;

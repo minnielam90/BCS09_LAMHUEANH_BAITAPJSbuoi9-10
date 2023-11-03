@@ -229,8 +229,7 @@ function editValueUser() {
   }
 
   var index = -1;
-  console.log(nhanVien);
-  console.log(arrNhanVien);
+
   for (var i = 0; i < arrNhanVien.length; i++) {
     if (nhanVien.tknv == arrNhanVien[i].tknv) {
       index = i;
@@ -242,10 +241,15 @@ function editValueUser() {
   arrNhanVien[index] = nhanVien;
   saveLocalStore("arrNhanVien", arrNhanVien);
   renderDisplay();
-  closeModal();
+  // closeModal();
   document.getElementById("formQLNV").reset();
 }
 document.getElementById("btnCapNhat").onclick = editValueUser;
+
+// // Chức năng đóng modal
+// function closeModal() {
+//   document.getElementById("myModal").style.display = "none";
+// }
 
 // Chức năng lưu dữ liệu xuống localStorage
 function saveLocalStore(key, value) {
@@ -266,24 +270,25 @@ function getLocalStore(key) {
 }
 getLocalStore("arrNhanVien");
 
-// // // ----tìm kiếm nhân viên theo loại nhân viên----
-// function searchInfoUser(event) {
-//   var keyword = event.target.value;
-//   console.log(keyword.toLowerCase().trim());
-//   var newKeyWord = removeVietnameseTones(keyword.toLowerCase().trim());
-//   console.log(newKeyWord);
+// // // ----tìm kiếm theo tên nhân viên----
+function searchInfoUser(event) {
+  var keyword = event.target.value;
 
-//   var arrFilter = [];
-//   var searchValue = document.getElementById("searchName");
-//   for (var i = 0; i < arrNhanVien.length; i++) {
-//     var loaiNhanVien = removeVietnameseTones(
-//       arrNhanVien[i].staffRating.toLowerCase().trim()
-//     );
+  var newKeyWord = removeVietnameseTones(keyword.toLowerCase().trim());
 
-//     if (loaiNhanVien.includes(newKeyWord)) {
-//       console.log("Tôi là nhân viên bạn cần kiếm, arrNhanVien[i]");
-//     } else {
-//       console.log("toi khong phai, arrNhanVien[i]");
-//     }
-//   }
-// }
+  var arrFilter = [];
+  for (var i = 0; i < arrNhanVien.length; i++) {
+    var tenNhanVien = removeVietnameseTones(
+      arrNhanVien[i].name.toLowerCase().trim()
+    );
+
+    if (tenNhanVien.includes(newKeyWord)) {
+      //   console.log("Tôi là nhân viên bạn cần kiếm, arrNhanVien[i]");
+      // } else {
+      //   console.log("toi khong phai, arrNhanVien[i]");
+      arrFilter.push(arrNhanVien[i]);
+    }
+  }
+  renderDisplay(arrFilter);
+}
+document.getElementById("btnTimNV").onclick = searchInfoUser;
